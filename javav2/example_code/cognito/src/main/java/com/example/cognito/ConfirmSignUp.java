@@ -23,7 +23,7 @@ public class ConfirmSignUp {
                 "Where:\n" +
                 "    ClientId - The ID of the app client associated with the user pool.\n\n" +
                 "    ConfirmationCode - The confirmation code sent by a user's request to confirm registration.\n\n" +
-                "    Username - The user name of the user whose registration you want to confirm.\n\n"
+                "    Username - The user name of the user whose registration you want to confirm.\n\n";
 
         if (args.length != 1) {
             System.out.println(usage);
@@ -46,7 +46,7 @@ public class ConfirmSignUp {
     public static void confirmSignUp(CognitoIdentityProviderClient identityProviderClient, String confirmationCode, String username){
 
         ConfirmSignUpRequest req = ConfirmSignUpRequest.builder()
-        	                .clientId(clientId)
+        	                .clientId("clientId")
         	                .confirmationCode(confirmationCode)
         	                .username(username)
         	                .build();
