@@ -47,8 +47,8 @@ public class CreateBucket {
 
         String bucketName = args[0];
         System.out.format("Creating a bucket named %s\n", bucketName);
-        ProfileCredentialsProvider credentialsProvider = ProfileCredentialsProvider.create();
-        Region region = Region.US_EAST_1;
+        ProfileCredentialsProvider credentialsProvider = ProfileCredentialsProvider.create("dev");
+        Region region = Region.EU_CENTRAL_1;
         S3Client s3 = S3Client.builder()
             .region(region)
             .credentialsProvider(credentialsProvider)
@@ -60,7 +60,6 @@ public class CreateBucket {
 
     // snippet-start:[s3.java2.create_bucket_waiters.main]
     public static void createBucket( S3Client s3Client, String bucketName) {
-
         try {
             S3Waiter s3Waiter = s3Client.waiter();
             CreateBucketRequest bucketRequest = CreateBucketRequest.builder()
